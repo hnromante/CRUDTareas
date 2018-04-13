@@ -5,8 +5,9 @@ from django.db import models
 class Tarea(models.Model):
     nombre = models.CharField(max_length = 50)
     descripcion = models.CharField(max_length = 50)
-    inicio = models.DateTimeField(auto_now_add=True, blank=True)
-    termino = models.DateTimeField(auto_now_add=False, blank=True)
+    inicio = models.DateTimeField()
+    termino = models.DateTimeField(auto_now_add=False, blank=True,null=True)
+   
     TERMINADA = 'terminada'
     PENDIENTE = 'pendiente'
     CANCELADA = 'cancelada'
@@ -23,3 +24,6 @@ class Tarea(models.Model):
         max_length = 30
     )
     img = models.CharField(max_length=255,blank=True)
+
+    def __str__(self):
+        return self.nombre
