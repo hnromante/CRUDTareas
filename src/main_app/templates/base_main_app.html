@@ -14,6 +14,20 @@
 </header>
 {% block body %}    
 
-{% endblock body %}    
+{% endblock body %}   
+
+<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script>
+        $('.dropdown-trigger').dropdown();
+        $('.dropdown-button').dropdown();
+        $("#id_nombre").change(function(){
+            console.log($("#id_nombre").val())
+        })
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+                    
+    </script>
 </body>
 </html>
