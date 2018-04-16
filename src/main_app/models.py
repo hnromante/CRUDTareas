@@ -24,6 +24,6 @@ class Tarea(models.Model):
         max_length = 30
     )
     img = models.CharField(max_length=255,blank=True)
-
+                  
     def __str__(self):
         return self.nombre

@@ -1,0 +1,30 @@
+{% extends "base_main_app.html" %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6 l6">
+        <img class="materialboxed z-depth-2 responsive-img" width="450"  src="{{tarea.img}}">
+    </div>
+    <div class="col s12 m6 l6">
+        <h3><strong>{{tarea.nombre}}</strong></h3>
+        <p>{{tarea.descripcion}}</p>
+        <hr>
+        <p class="purple-text left-align"><i class="material-icons">bookmark</i>Inicio: {{tarea.inicio}}</p>
+        <p class="purple-text left-align"><i class="material-icons">bookmark_border</i>Término: {{tarea.termino|default_if_none:"--"}}</p>
+        <!-- Consultamos el estado y le damos un color-->
+        {% if tarea.estado == "pendiente" %}
+            <p class="yellow white-text darken-2">{{tarea.estado}}</p>
+        {% elif tarea.estado == "terminada" %}
+            <p class="green white-text">{{tarea.estado}}</p>   
+        {% elif tarea.estado == "cancelada" %}
+            <p class="grey white-text">{{tarea.estado}}</p>
+        {% elif tarea.estado == "limite" %}
+            <p class="red white-text">{{tarea.estado}}</p>
+        {% else %}
+            <p class="blue white-text">CUALQUEIR WEA LOS IFSs</p> 
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock body %}
